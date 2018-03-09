@@ -5,7 +5,7 @@ import (
 )
 
 func TestEventBus(t *testing.T) {
-	bus := NewEventBus()
+	bus := New()
 	var caught string
 	var data EventData
 	bus.Subscribe("test", func(e Event) {
