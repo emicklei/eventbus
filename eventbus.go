@@ -22,8 +22,8 @@ type EventBus struct {
 	listeners map[string][]EventListener
 }
 
-// NewEventBus return a new EventBus
-func NewEventBus() EventBus {
+// New return a new EventBus
+func New() EventBus {
 	return EventBus{new(sync.RWMutex), map[string][]EventListener{}}
 }
 
