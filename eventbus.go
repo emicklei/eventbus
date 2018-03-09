@@ -39,9 +39,9 @@ func (e *EventBus) Subscribe(name string, listener EventListener) {
 	e.listeners[name] = list
 }
 
-// Post sends an event to all subscribed listeners.
+// Publish sends an event to all subscribed listeners.
 // Parameter data is optional ; Post can only have one map parameter.
-func (e *EventBus) Post(name string, data ...map[string]interface{}) {
+func (e *EventBus) Publish(name string, data ...map[string]interface{}) {
 	e.mutex.RLock()
 	defer e.mutex.RUnlock()
 	list, ok := e.listeners[name]

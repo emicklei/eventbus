@@ -12,17 +12,17 @@ func TestEventBus(t *testing.T) {
 		caught = e.Name
 		data = e.Data
 	})
-	bus.Post("test")
+	bus.Publish("test")
 	if caught != "test" {
 		t.Error("expected to caught event")
 	}
 	caught = ""
-	bus.Post("test", EventData{"pi": 3.14159})
+	bus.Publish("test", EventData{"pi": 3.14159})
 	if _, ok := data["pi"]; !ok {
 		t.Error("expected to fetch data")
 	}
 	caught = ""
-	bus.Post("test", map[string]interface{}{"pi": 3.14159})
+	bus.Publish("test", map[string]interface{}{"pi": 3.14159})
 	if _, ok := data["pi"]; !ok {
 		t.Error("expected to fetch data")
 	}
