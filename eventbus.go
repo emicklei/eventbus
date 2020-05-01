@@ -23,8 +23,8 @@ type EventBus struct {
 }
 
 // NewEventBus return a new EventBus
-func NewEventBus() EventBus {
-	return EventBus{new(sync.RWMutex), map[string][]EventListener{}}
+func NewEventBus() *EventBus {
+	return &EventBus{new(sync.RWMutex), map[string][]EventListener{}}
 }
 
 // Subscribe adds an EventListener to be called when an event is posted.
